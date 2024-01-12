@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/courses")
+
 public class CourseController {
     @Autowired
     private CourseService courseService;
@@ -21,6 +22,11 @@ public class CourseController {
     public ResponseEntity<Course> getCourseById(@PathVariable int courseId) {
         Course course = courseService.getCourseById(courseId);
         return ResponseEntity.ok(course);
+    }
+    @GetMapping("/{courseName}/id")
+    public ResponseEntity<Integer> getCourseIdByName(@PathVariable String courseName) {
+        int courseId = courseService.getCourseIdByName(courseName);
+        return ResponseEntity.ok(courseId);
     }
 
     @GetMapping

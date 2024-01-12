@@ -1,5 +1,7 @@
 package com.example.autoecoleflutter.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -11,6 +13,8 @@ public class Course {
     private int id_course;
     private String courseName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+    @JsonIgnore  // Exclude questions from JSON serialization
+
     private List<Question> questions;
 
     public Course() {

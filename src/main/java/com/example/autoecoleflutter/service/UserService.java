@@ -15,7 +15,9 @@ public class UserService {
     public User getUserById(int id_user) {
         return userRepository.findById(id_user).orElse(null);
     }
-
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
+    }
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -34,5 +36,10 @@ public class UserService {
 
     public void deleteUser(int id_user) {
         userRepository.deleteById(id_user);
+    }
+
+    public boolean validatePassword(String email, String password) {
+        User user = userRepository.findByEmail(email).orElse(null);
+        return user != null && password.equals(user.getPassword());
     }
 }

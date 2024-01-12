@@ -12,6 +12,13 @@ public class QuestionService {
     @Autowired
     private QuestionRepository questionRepository;
 
+
+    public List<Question> getQuestionsByCourseId(int courseId) {
+        // Implement the logic to retrieve questions based on courseId
+        // This might involve querying your database or data source
+        return questionRepository.findByCourseId(courseId);
+    }
+
     public Question getQuestionById(int id_question) {
         return questionRepository.findById(id_question).orElse(null);
     }

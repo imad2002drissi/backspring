@@ -12,14 +12,27 @@ public class User {
     private int id_user;
     private String name;
     private String email;
+    private String password;
 
-    public User(String name, String email) {
+
+
+    public User(String name, String email,String password) {
 
         this.name = name;
         this.email = email;
+        this.password=password;
     }
 
     public User() {
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getId_user() {

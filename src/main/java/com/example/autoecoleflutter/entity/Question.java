@@ -1,5 +1,6 @@
 package com.example.autoecoleflutter.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 //(combined question and solution)  ankhedmo biha f course
 
@@ -12,6 +13,8 @@ public class Question {
     private String solution;
     @ManyToOne
     @JoinColumn(name = "course_id")
+    @JsonIgnoreProperties("questions") // Exclude the questions property during serialization
+
     private Course course;
 
     public Question() {

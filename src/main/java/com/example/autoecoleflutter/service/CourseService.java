@@ -13,6 +13,11 @@ public class CourseService {
     @Autowired
     private CourseRepository courseRepository;
 
+    public int getCourseIdByName(String courseName) {
+        Course course = courseRepository.findByCourseName(courseName);
+        return course != null ? course.getId_course() : -1; // Return -1 if course is not found
+    }
+
     public Course getCourseById(int id_course) {
         return courseRepository.findById(id_course).orElse(null);
     }
